@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 
 import plants.temperature.dao.SampleDao
 import plants.temperature.entity.Sample
-import plants.temperature.service.Internationalization;
+import plants.temperature.service.Internationalization
+import plants.temperature.web.StaticOption;
 
 import java.sql.Timestamp
 
@@ -35,13 +36,8 @@ class Home {
 
 	@RequestMapping(value="/")
 	public String index(Model model){
-		def sample = new Sample()
-		def date = new Date()
-		sample.acquisition = new Timestamp(date.getTime())
-		sample.setValue(new BigDecimal("25.40"))
-		sampleDao.save(sample)
-		log.debug sample
 		model.addAttribute("samples",sampleDao.findAll())
+		model.addAttribute("options",StaticOption.getOptions())
 		log.debug "Model completed, returning"
 		return HOME
 	}

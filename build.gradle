@@ -25,9 +25,15 @@ def groovyVersion = "2.4.6"
 def springbootVersion = "1.3.3.RELEASE"
 def postgresSqlVersion  = '9.4.1208.jre7'
 def handlebarsVersion = "4.0.5"
+def bootstrapVersion = "3.3.6"
+def backBoneVersion = "1.2.3"
+def underscoreVersion = "1.8.3"
+def jqueryVersion = "2.2.1"
+def quartzVersion = "2.2.2"
 dependencies {
 	// The production code uses the SLF4J logging API at compile time
 	compile("org.springframework.boot:spring-boot-starter-web")
+	
 	compile group: 'org.apache.logging.log4j', name: 'log4j-api' ,                   version: log4jVersion
 	compile group: 'org.apache.logging.log4j', name: 'log4j-core',                   version: log4jVersion
 	compile group: 'org.codehaus.groovy'     , name: 'groovy'    ,                   version: groovyVersion
@@ -35,11 +41,14 @@ dependencies {
 	compile group: 'org.postgresql',           name: 'postgresql',                   version: postgresSqlVersion
 	compile group: 'com.github.jknack',        name: 'handlebars',                   version: handlebarsVersion
 	compile group: 'com.github.jknack',        name: 'handlebars-springmvc',         version: handlebarsVersion
-	compile "org.webjars:jquery:2.2.1"
-	compile "org.webjars:underscorejs:1.8.3"
-	compile "org.webjars:backbonejs:1.2.3"
-	compile "org.webjars:bootstrap:3.3.6"
-
+	compile group: 'org.webjars',              name: 'jquery',                       version: jqueryVersion
+	compile group: "org.webjars",              name: "underscorejs",                 version: underscoreVersion
+	compile group: "org.webjars",              name: "backbonejs",                   version: backBoneVersion
+	compile group: "org.webjars",              name: "bootstrap",                    version: bootstrapVersion
+	compile group: "org.quartz-scheduler",     name: "quartz",                       version: quartzVersion
+	compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
+	//compile group: "org.quartz-scheduler",     name: "quartz-job",             version: quartzVersion
+	
 	// Declare the dependency for your favourite test framework you want to use in your tests.
 	// TestNG is also supported by the Gradle Test task. Just change the
 	// testCompile dependency to and add
