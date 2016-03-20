@@ -15,11 +15,11 @@ class Internationalization {
 		this.messageSource = messageSource
 		this.localeResolver= localeResolver
 	}
-	
-	public String translate(String placeHolder,Object... args){
-		messageSource.getMessage(placeHolder, args, new RequestContext().getLocale())
+
+	public String translate(String placeHolder,Object[] args){
+		messageSource.getMessage(placeHolder, args, placeHolder, new RequestContext().getLocale())
 	}
 	public String translate(String placeHolder){
-		translate(placeHolder,null)
+		translate(placeHolder,new Object())
 	}
 }

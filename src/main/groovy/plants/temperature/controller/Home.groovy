@@ -35,7 +35,6 @@ class Home {
 
 	@RequestMapping(value="/")
 	public String index(Model model){
-		model.addAttribute("title",internationalization.translate("temperature.home.title"))
 		def sample = new Sample()
 		def date = new Date()
 		sample.acquisition = new Timestamp(date.getTime())
