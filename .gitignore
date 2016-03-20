@@ -6,4 +6,5 @@
 bin/
 build/
 temp
-
+src/main/resources/conf/particle.properties
+test-output/

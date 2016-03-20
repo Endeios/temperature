@@ -13,7 +13,7 @@ jar {
 	version =  '0.1.0'
 }
 
-repositories { mavenCentral() }
+repositories {  mavenCentral(); }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,10 +30,12 @@ def backBoneVersion = "1.2.3"
 def underscoreVersion = "1.8.3"
 def jqueryVersion = "2.2.1"
 def quartzVersion = "2.2.2"
+def unirestVersion = "1.4.7"
+def springFrameworkVersion = "4.2.5.RELEASE"
 dependencies {
 	// The production code uses the SLF4J logging API at compile time
 	compile("org.springframework.boot:spring-boot-starter-web")
-	
+
 	compile group: 'org.apache.logging.log4j', name: 'log4j-api' ,                   version: log4jVersion
 	compile group: 'org.apache.logging.log4j', name: 'log4j-core',                   version: log4jVersion
 	compile group: 'org.codehaus.groovy'     , name: 'groovy'    ,                   version: groovyVersion
@@ -46,12 +48,18 @@ dependencies {
 	compile group: "org.webjars",              name: "backbonejs",                   version: backBoneVersion
 	compile group: "org.webjars",              name: "bootstrap",                    version: bootstrapVersion
 	compile group: "org.quartz-scheduler",     name: "quartz",                       version: quartzVersion
-	compile 'org.springframework:spring-context-support:4.2.5.RELEASE'
-	//compile group: "org.quartz-scheduler",     name: "quartz-job",             version: quartzVersion
-	
+	compile "org.springframework:spring-context-support:$springFrameworkVersion"
+	compile "com.mashape.unirest:unirest-java:$unirestVersion"
+
 	// Declare the dependency for your favourite test framework you want to use in your tests.
 	// TestNG is also supported by the Gradle Test task. Just change the
 	// testCompile dependency to and add
 	// 'test.useTestNG()' to your build script.
+	testCompile "org.springframework.boot:spring-boot-starter-test:$springbootVersion"
 	testCompile "org.testng:testng:$testNGVersion"
+}
+
+test {
+	// enable TestNG support (default is JUnit)
+	useTestNG()
 }

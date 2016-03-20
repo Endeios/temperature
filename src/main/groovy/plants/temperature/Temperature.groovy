@@ -30,9 +30,8 @@ import javax.sql.DataSource
 import org.apache.logging.log4j.LogManager;
 
 @SpringBootApplication
-@PropertySource("classpath:/conf/temperature.properties")
-@ImportResource(["classpath:/conf/database.xml","classpath:/conf/cron.xml"])
-//@Import([Scheduler.class])
+@PropertySource(["classpath:/conf/temperature.properties","classpath:/conf/particle.properties"])
+@ImportResource(["classpath:/conf/database.xml","classpath:/conf/cron.xml","classpath:/conf/particle.xml"])
 class Temperature {
 
 	private static Logger log = LogManager.getLogger(Temperature.class)

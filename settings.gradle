@@ -16,7 +16,5 @@ include 'api'
 include 'services:webservice'
 */
 
- println("Test")
- 
 rootProject.name = 'temperature'
 
